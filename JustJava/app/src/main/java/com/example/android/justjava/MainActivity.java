@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import java.text.NumberFormat;
+import java.text.StringCharacterIterator;
 
 /**
  * This app displays an order form to order coffee.
@@ -32,9 +33,8 @@ public class MainActivity extends AppCompatActivity {
      */
     public void submitOrder(View view) {
         int price = calculatePrice();
-        String priceMessage = "Total: $" + price;
-        priceMessage = priceMessage + "\nThank you!";
-        displayMessage(priceMessage);
+        String orderSummary = createOrderSummary(price);
+        displayMessage(orderSummary);
     }
 
     /**
@@ -44,6 +44,17 @@ public class MainActivity extends AppCompatActivity {
         int pricePerCup = 5;
         int price = quantity * pricePerCup;
         return price;
+    }
+
+    /**
+     * Generates the summary of the order.
+     * @param totalPrice
+     * @return
+     */
+    private String createOrderSummary(int totalPrice){
+        String orderSummary = "Name: DAK" + "\n" + "Quantity: " + quantity + "\n" + "Total: $" + totalPrice;
+        orderSummary = orderSummary + "\nThank you!";
+        return orderSummary;
     }
 
     /**
