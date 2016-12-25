@@ -38,6 +38,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
+     * Calculates the price of the order.
+     *
+     * @param quantity is the number of cups of coffee ordered
+     */
+    private void calculatePrice(int quantity) {
+        int price = quantity * 5;
+    }
+
+    /**
      * This method is called when the plus[+] button is clicked.
      */
     public void increment(View view){
